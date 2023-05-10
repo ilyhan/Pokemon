@@ -29,11 +29,6 @@ int main()
     Pockemon* po = new Pockemon[n];
     initStructpo(po,n);
 
-    //вывод покемонов
-    //for (int i = 0; i < n; i++) {
-    //    cout << po[i].name << "  " << po[i].attack << "  " << po[i].TypePock << endl;
-    //}
-
     bool flag = true;
     int mypock, enemypock, k;
     while (flag) {
@@ -76,10 +71,12 @@ int main()
         if (po[mypock].weakness == po[enemypock].advantage) winner = generationBattle(po, myst, enemyst, 2, mypock, enemypock);
         else if (po[enemypock].weakness == po[mypock].advantage) winner = generationBattle(po, myst, enemyst, 2, mypock, enemypock);
         else winner = generationBattle(po, myst, enemyst, 1, mypock, enemypock);
+        
         cout << "\nИТОГ СРАЖЕНИЯ: ";
         if (winner == -1) {
             cout << "Боевая ничья";
         }else cout << "Выиграл " << po[winner].name<< endl;
+        
         cout << "\n-----------------------------------------\n";
         cout << "\n\nВведите 0, если хотите закончить или любое число для продолжения" << endl;
         cin >> k;
